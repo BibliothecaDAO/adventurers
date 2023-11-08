@@ -2,7 +2,15 @@
 
 > WIP: This is heavy work in progress
 
-Milestone: Deploy into Realms Testnet.
+Milestone: Deploy into Realms Testnet by end of 2024
+
+todo:
+
+- [ ] Agree on Base models
+- [ ] Define inital systems
+- [ ] Build tests
+- [ ] Deploy into Eternum
+- [ ] Drink beer
 
 ## Table of Contents
 
