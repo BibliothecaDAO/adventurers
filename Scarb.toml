@@ -1,6 +1,6 @@
 [package]
 cairo-version = "2.2.0"
-name = "dojo_examples"
+name = "realms_adventurers"
 version = "0.3.5"
 
 [cairo]
