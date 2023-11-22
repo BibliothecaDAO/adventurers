@@ -2,12 +2,12 @@
 use starknet::ContractAddress;
 
 
-const GAMEKEY: felt252 = 'Adventurer';
+const GAMEKEY: u128 = 0;
 // record the auto-increment id 
 #[derive(Model, Copy, Drop, Serde)]
 struct GameData {
     #[key]
-    key: felt252,
+    game: u128,
     adventurer_id: u128,
 }
 
