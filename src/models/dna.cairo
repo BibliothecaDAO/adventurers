@@ -2,6 +2,16 @@
 use starknet::ContractAddress;
 
 
+const GAMEKEY: felt252 = 'Adventurer';
+// record the auto-increment id 
+#[derive(Model, Copy, Drop, Serde)]
+struct GameData {
+    #[key]
+    key: felt252,
+    adventurer_id: u128,
+}
+
+
 // ID is a unique identifier for an entity
 #[derive(Model, Copy, Drop, Serde)]
 struct AdventurerId {
@@ -17,7 +27,7 @@ struct AdventurerId {
 }
 
 #[derive(Model, Copy, Drop, Serde)]
-struct playerAddress {
+struct PlayerAddress {
     #[key]
     adventurer_id: u128,
     player: ContractAddress,
@@ -55,7 +65,7 @@ struct Position {
     #[key]
     adventurer_id: u128,
     // which map is this adventurer in
-    locattion: u128,
+    location: u128,
     // where is this adventurer in the map
     vec: Vec3,
 }
