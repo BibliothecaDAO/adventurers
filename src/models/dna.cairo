@@ -1,13 +1,13 @@
 // the minimum DNA of an Adventurer
-
 use starknet::ContractAddress;
+
 
 // ID is a unique identifier for an entity
 #[derive(Model, Copy, Drop, Serde)]
 struct AdventurerId {
     #[key]
     player: ContractAddress,
-    adventurer_id: u64,
+    adventurer_id: u128,
 //
 // think about the situation where player has a few adventurers
 // model can't store array yet, so hard code
@@ -19,7 +19,7 @@ struct AdventurerId {
 #[derive(Model, Copy, Drop, Serde)]
 struct playerAddress {
     #[key]
-    adventurer_id: u64,
+    adventurer_id: u128,
     player: ContractAddress,
 }
 
@@ -27,7 +27,7 @@ struct playerAddress {
 #[derive(Model, Copy, Drop, Serde)]
 struct Name {
     #[key]
-    adventurer_id: u64,
+    adventurer_id: u128,
     name: felt252,
 }
 
@@ -36,7 +36,7 @@ struct Name {
 #[derive(Model, Copy, Drop, Serde)]
 struct Energy {
     #[key]
-    adventurer_id: u64,
+    adventurer_id: u128,
     value: u64,
 }
 
@@ -44,7 +44,7 @@ struct Energy {
 #[derive(Model, Copy, Drop, Serde, SerdeLen)]
 struct Health {
     #[key]
-    adventurer_id: u64,
+    adventurer_id: u128,
     health: u32,
 }
 
@@ -53,12 +53,17 @@ struct Health {
 #[derive(Model, Copy, Drop, Serde)]
 struct Position {
     #[key]
-    adventurer_id: u64,
-    vec: Vec2,
+    adventurer_id: u128,
+    // which map is this adventurer in
+    locattion: u128,
+    // where is this adventurer in the map
+    vec: Vec3,
 }
 
 #[derive(Copy, Drop, Serde, Introspect)]
-struct Vec2 {
+struct Vec3 {
     x: u32,
-    y: u32
+    y: u32,
+    // in case of 3d
+    z: u32
 }
